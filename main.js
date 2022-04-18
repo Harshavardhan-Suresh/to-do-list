@@ -7,7 +7,10 @@ window.addEventListener('load', () => {
 		e.preventDefault();
 
 		const task = input.value;
-
+        if (!task) {
+            alert("Please fill out the task");
+            return;
+        }
 		const task_el = document.createElement('div');
 		task_el.classList.add('task');
 
@@ -50,6 +53,10 @@ window.addEventListener('load', () => {
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
 			} else {
+                if (!task_input_el.value) {
+                    alert("Please do not leave the task empty");
+                    return;
+                }
 				task_edit_el.innerText = "Edit";
 				task_input_el.setAttribute("readonly", "readonly");
 			}
